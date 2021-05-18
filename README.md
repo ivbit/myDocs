@@ -1,2 +1,7 @@
 # myDocs
-My documentation. source: *.odt binary: *.pdf
+
+My documentation.
+
+source: *.odt
+
+binary: *.pdf
