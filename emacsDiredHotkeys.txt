@@ -1,0 +1,55 @@
+
+Dired hotkeys:
+C-x d                          Open Dired file manager
+C-x 4 d                        Open Dired in other window
+M-x dired                      Open Dired file manager
+C-x C-f C-d                    Open Dired if fido-mode is enabled
+M-x customize-group, dired     Customize Dired settings, write changes to ~/.emacs.d/init.el
+C-h m (in Dired buffer)        Open help about Dired, list all Dired hotkeys
+q                              Quit Dired
+<RET>                          Open (visit) current item
+f                              Open (visit) current item
+F                              Open (visit) all marked items,       (require 'dired-x)
+C-u F                          Open all marked items in background, (require 'dired-x)
+^                              Go up one directory
+p                              Move cursor (point) up
+C-p                            Move cursor (point) up
+n                              Move cursor (point) down
+C-n                            Move cursor (point) down
+m                              Mark current item
+u                              Unmark current item
+U                              Unmark all items
+d                              Flag for deletion
+* m                            Mark selection
+* u                            Unmark selection
+* %                            Mark by elisp regexp, example .*\.tcl
+* .                            Mark by extension
+t                              Toggle marking for all items
+* t                            Toggle marking for all items
+* c                            Change mark type of all items with same mark type
+C                              Copy items
+R                              Rename, or move items
+O                              Change owner
+G                              Change group
+M                              Change permissions
+D                              Delete marked  items (files with * mark)
+x                              Delete flagged items (files with D mark)
+c                              Compress marked into an archive file
+g                              Refresh Dired buffer
++                              Create a subdirectory
+s                              Toggle sorting by name/date
+<                              Move cursor (point) to previous subdirectory
+>                              Move cursor (point) to     next subdirectory
+j                              Move cursor (point) to file, promt for filename
+M-s a C-s                      Begin multifile Isearch,         (require 'dired-x)
+Q                              Xref Query replace regexp,       (require 'dired-x)
+A                              Xref Search by regexp,           (require 'dired-x)
+!                              Synchronous shell command, *, ?, (require 'dired-x)
+&                              Asynchronous shell command,      (require 'dired-x)
+i                              Insert subdirectory in current Dired buffer
+$                              Collapse/expand directory opened in Dired buffer
+M-x find-dired                 Call find shell command with pattern
+M-x find-name-dired            Call find shell command with -name
+M-x find-grep-dired            Call find with grep
+M-x find-lisp-find-dired       Call elisp find implementation, elisp regexp
+
