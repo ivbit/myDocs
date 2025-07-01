@@ -1,0 +1,13 @@
+
+Enter rectangle mark mode with C-x SPC
+Shrink or grow region by (This is going to select a rectangle):
+1. Do C-n or C-p to expand the cursor to the next or previous
+lines respectively.
+2. You can now play with text selection by doing C-f, C-b,
+M-f, M-b, etc.
+This selected rectangle region can be used to perform some
+actions like:
+Kill : C-x r k
+Delete: C-x r d
+Yank: C-x r y (paste last killed rectangle at cursor position)
+

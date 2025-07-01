@@ -1,0 +1,67 @@
+
+https://www.emacswiki.org/emacs/ChangingEncodings
+Changing encodings:
+
+When Emacs reads a file, it determines the encoding, reads the file, decodes
+it into an internal representation, and stores the coding-system used in a
+variable to be used when saving the file. When saving, the buffer is encoded
+using the stored coding-system and written to the file again.
+
+You can change the encoding to use for the file when saving using "C-x C-m f".
+You can also force this immediately by using
+"C-x C-m c <encoding> RET C-x C-w RET". You can list all available encodings
+with "M-x list-coding-systems".
+
+You can force Emacs to read a file in a specific encoding with
+"C-x RET c C-x C-f". If you opened a file and EMACS determined the encoding
+incorrectly, you can use "M-x revert-buffer-with-coding-system", to reload
+the file with a named encoding.
+
+For characters covered by ISO 8859, you can interconvert most encodings in
+Emacs 21.3, courtesy of the code in ucs-tables.el. – fx
+
+Maybe some more explanation is needed, here. In an Emacs running in a Latin-1
+locale, create a buffer containing the letter "ö". Save. The modeline indicates
+Latin-1 via the "1". Now save using "C-x C-m c latin-2 RET C-x C-w RET". The
+modeline indicates Latin-2 via the "2". Kill the buffer, reopen it. It displays
+correctly, but the modeline indicates Latin-1 again. When and why did Emacs do
+the change from Latin-2 back to Latin-1? Does Locale take precedence over
+"C-x C-m c"?
+
+If, in a Latin-1 environment, you visit a non-ASCII file that doesn't contain
+bytes in the range #x80 to #x9f, it is decoded as Latin-1 unless its encoding
+is specified explicitly somehow. The character `ö" has the same code point in
+Latin-1 and Latin-2, which is why it "displays correctly".
+See M-x list-charset-chars and C-u C-x =.
+
+https://superuser.com/questions/549497/how-to-switch-back-text-encoding-to-utf-8-with-emacs
+
+
+If you haven't changed the file, you can try
+M-x revert-buffer-with-coding-system
+One of latin-1 or utf-8 should work, depending on the file.
+
+You can also mark the entire file with C-x h and then try
+M-x recode-region
+It will ask you for Text was really in and But was interpreted as. For the
+first file in your question, it looks like it should be latin-1 and utf-8,
+and for the second example it should probably be the other way around,
+utf-8 and latin-1.
+
+After you got it right, you can choose which coding system to save the
+file with using
+M-x set-buffer-file-coding-system
+(or C-x C-m f for short).
+
+Set coding system to use while saving the file:
+C-x RET f, utf-8
+M-x set-buffer-file-coding-system
+C-x RET r, utf-8
+M-x revert-buffer-with-coding-system
+
+Open file with MS-DOS encoding:
+C-x RET c, cp866, C-x C-f, dos.txt
+Save file in utf-8 encoding:
+C-x RET f, utf-8, C-x C-s
+C-x RET f, utf-8-unix, C-x C-s
+

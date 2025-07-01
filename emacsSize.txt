@@ -1,0 +1,16 @@
+
+  <F10>   Open global menu
+M-<F10>   Toggle maximize current frame
+  <F11>   Toggle fullscreen
+C-x C-=   Increase font size in current window
+C-x C--   Decrease font size in current window
+C-x C-0   Reset to default font size in current window
+
+Change encoding and line endings of file being saved:
+C-x <RET> f, utf-8
+C-x <RET> f, utf-8-unix, or utf-8-dos
+Click on symbols on the left side of mode line
+
+Set default file encoding for all buffers:
+C-[ :, (setq-default buffer-file-coding-system 'utf-8-unix)
+
