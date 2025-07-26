@@ -1,0 +1,36 @@
+
+Regular expressions:
+\|                             Alternative
+\{ \}                          Repetition
+\` \'                          Beginning and end of buffer
+\< \>                          Beginning and end of word
+\b                             Beginning, or end of word
+\B                             Not at beginning, or end of word
+\_< \_>                        Beginning and end of symbol
+*?, +?, ??                     Non-greedy *, +, ?
+\( \)                          Capturing group
+\(?: \)                        Shy capturing group
+\1 to \9                       Insert text from group
+\#1 to \#9                     Insert text from group as an integer
+\?                             Prompt user for text input
+\#                             Insert number incremented from 0 after every match
+\&                             Insert whole match
+\,(function)                   Call elisp function in replace portion of regexp
+\w                             Word-constituent character
+\W                             Not Word-constituent character
+\sCODE                         Match        character from code table
+\Scode                         Do not match character from code table
+Code table (can change depending on major mode):
+-                              Whitespace
+w                              Alnum
+_                              Alnum with extra symbols: _ ! and others
+.                              Punctuation characters
+( and )                        Grouped pair: () [] {}
+"                              String characters: " '
+< and >                        Open/close comment characters
+
+Recursion:
+You may want to increase the values of "max-specpdl-size" and
+"max-lisp-eval-depth".  In my ".emacs" file, I set them to
+15 and 30 times their default value - Elisp Intro (eintr).
+
